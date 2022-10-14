@@ -3,11 +3,19 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Dustin Delatore. All rights reserved.
+	<p>&copy; {today.getFullYear()} Dustin Delatore. All rights reserved.</p>
+	<p>
+	   <a href="/privacy">Privacy</a>
+        <span aria-hidden="true">&nbsp;♲&nbsp;</span>
+        <a href="/terms">Terms</a>
+	</p>
 </footer>
 <style>
 	footer {
 		padding: 25px;
 		text-align: center;
 	}
+	p + p {
+	   margin-top: 0;
+    }
 </style>

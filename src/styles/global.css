@@ -1,22 +1,30 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;600&display=swap');
-body {
-	font-family: 'Lexend Deca', Verdana, sans-serif;
-	font-weight: 300;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+:root {
+    --color-fg: #212529;
+    --color-bg: #f8f9fa;
+    --color-link: #1C640C;
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-fg: #ced4da;
+        --color-bg: #212529;
+        --color-link: #A6CEFC;
+    }
+}
+
+body {
+	font-family: 'Lexend', Verdana, sans-serif;
+	font-weight: 200;
+	margin: auto;
+	padding: 18px;
+	max-width: 65ch;
+	background: var(--color-bg);
+	font-size: 20px;
+    line-height: 1.75;
+	color: var(--color-fg);
+	text-rendering: optimizeLegibility
+}
+
 h1,
 h2,
 h3,
@@ -25,11 +33,25 @@ h5,
 h6,
 strong,
 b {
-	color: #222;
+	color: var(--color-fg);
 	font-weight: 600;
 }
 a {
-	color: #3273dc;
+	color: var(--color-link);
+	position: relative;
+	text-decoration: none;
+}
+a::before {
+    width: 0;
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    height: 1px;
+    background: currentColor;
+    transition: width 300ms ease-in-out;
+}
+a:hover::before {
+    width: 100%;
 }
 nav a {
 	margin-right: 10px;
@@ -53,7 +75,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: #f2f2f2;
+	background-color: var(--color-bg);
 }
 pre {
 	padding: 1rem;
@@ -63,7 +85,7 @@ pre > code {
 }
 blockquote {
 	border: 1px solid #999;
-	color: #222;
+	color: var(--color-fg);
 	padding: 2px 0px 2px 20px;
 	margin: 0px;
 	font-style: italic;

@@ -5,16 +5,16 @@ import Footer from "../components/Footer.astro";
 
 export interface Props {
 	content: {
-		title: string;
-		description: string;
-		pubDate?: string;
-		updatedDate?: string;
-		heroImage?: string;
-	};
+	    title: string;
+    	description: string;
+    	pubDate?: string;
+    	updatedDate?: string;
+    	heroImage?: string;
+	}
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+	content: { title, description, pubDate, updatedDate, heroImage }
 } = Astro.props as Props;
 ---
 
@@ -34,7 +34,7 @@ const {
 	</head>
 
 	<body>
-		<Header />
+		<Header title="Who's Dustin?" />
 		<main>
 			<article>
 				{heroImage && (
